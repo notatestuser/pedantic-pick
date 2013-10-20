@@ -31,4 +31,18 @@ describe 'pick()', ->
       fn = pick.bind(@, source, '!::roses', '!::hemp')
       expect(fn).to.throw Error('hemp is required')
 
-  # describe 'when attributes are validated'
+  describe 'when attributes are validated', ->
+
+    it 'should pick out the validated attributes if satisified', ->
+      res = pick source, 'string::roses', 'string::violets'
+      expect(res).to.deep.equal source
+
+    it 'should pick out the validated attributes if satisified (shorthand)', ->
+      res = pick source, 's::roses', 's::violets'
+      expect(res).to.deep.equal source
+
+    it 'should throw an error if validation did not pass', ->
+      fn = pick.bind(@, source, 's::roses', 'o::violets')
+      expect(fn).to.throw Error('violets failed validation')
+
+
