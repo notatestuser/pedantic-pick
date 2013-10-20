@@ -2,10 +2,10 @@ pedantic-pick [![Build Status](https://travis-ci.org/notatestuser/pedantic-pick.
 =============
 This is an enhanced `_.pick` that runs validation functions on picked attributes.
 
-It's common for API developers to use underscore or lodash's `pick` to extract only the 
-desired attributes of an incoming object when turning it into a JSON blob for storage in a 
-database or whatever. The problem with that is that additional code is needed to verify 
-that the attributes are actually the types that you expect them to be. 
+It's common for API developers to use underscore or lodash's `pick` to extract only the
+desired attributes of an incoming object when turning it into a JSON blob for storage in a
+database or whatever. The problem with that is that additional code is needed to verify
+that the attributes are actually the types that you expect them to be.
 Using pedantic-pick will allow you to kill two birds with one stone, so to speak.
 
 ## Usage
@@ -39,12 +39,14 @@ Each given expression argument must conform to this "grammar": `[!][validator::]
 The following validators are built-in (and later we'll accept custom validation functions as arguments):
 
 * required (prefix the expression with `!`)
-* string (or `s`)
 * number (or `num` or `n`)
 * boolean (or `bool` or `b`)
 * function (or `fun` or `f`)
 * object (or `o`)
+* string (or `s`)
 * array (or `a`)
+* nempstring (non-empty string; or `nes`)
+* nemparray (non-empty array; or `nea`)
 
 ## License
 See LICENSE
