@@ -65,7 +65,7 @@ pick = (source, exprs..., thisArg = @) ->
   pass = attrs.every (attrName, idx) ->
     isRequired = exprs[idx].charAt(0) is REQUIRED_ATTR_TOKEN
     lastAttrName = attrName
-    if (isRequired or picked[attrName]) and fns = validationSpec[attrName]
+    if (isRequired or picked[attrName] isnt undefined) and fns = validationSpec[attrName]
       fns.every (fn) ->
         fn.call(thisArg, picked[attrName])
     else true

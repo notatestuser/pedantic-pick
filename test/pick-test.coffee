@@ -63,3 +63,13 @@ describe 'pick()', ->
     it 'should throw an error if validation did not pass', ->
       fn = pick.bind(@, source, 's::roses', 'o::violets')
       expect(fn).to.throw ValidationError('violets failed validation')
+
+  describe 'when validating optional non-empty strings/arrays', ->
+
+    source2 =
+      realname: ''
+      password: '123'
+
+    it 'should complain about the non-empty string there', ->
+      fn = pick.bind(@, source2, 'nes::realname', 'nes::password')
+      expect(fn).to.throw ValidationError('realname failed validation')
