@@ -29,7 +29,11 @@ describe 'pick()', ->
 
     it 'should throw an error if requirements are not satisifed', ->
       fn = pick.bind(@, source, '!::roses', '!::hemp')
-      expect(fn).to.throw Error('hemp is required')
+      expect(fn).to.throw Error('hemp failed validation')
+
+    it 'should throw an error if requirements are not satisifed (alt expr form)', ->
+      fn = pick.bind(@, source, '!roses', '!hemp')
+      expect(fn).to.throw Error('hemp failed validation')
 
   describe 'when attributes are validated', ->
 
@@ -44,5 +48,3 @@ describe 'pick()', ->
     it 'should throw an error if validation did not pass', ->
       fn = pick.bind(@, source, 's::roses', 'o::violets')
       expect(fn).to.throw Error('violets failed validation')
-
-

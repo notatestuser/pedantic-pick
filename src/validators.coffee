@@ -1,22 +1,23 @@
 _ = require './lodash-abridged'
 
 validators = [
-  ['string', 's',            (v) -> typeof v is 'string']
+  ['required',              (v) -> v isnt undefined and v isnt null]
 
-  ['number', 'num', 'n',     (v) -> typeof v is 'number']
+  ['string', 's',           (v) -> typeof v is 'string']
 
-  ['boolean', 'bool', 'b',   (v) -> v is true or v is false]
+  ['number', 'num', 'n',    (v) -> typeof v is 'number']
 
-  ['function', 'f', 'fun',   (v) -> typeof v is 'function']
+  ['boolean', 'bool', 'b',  (v) -> v is true or v is false]
 
-  ['object', 'o',            (v) -> typeof v is 'object' and not _.isArray(v)]
+  ['function', 'f', 'fun',  (v) -> typeof v is 'function']
 
-  ['array', 'a',             _.isArray]
+  ['object', 'o',           (v) -> typeof v is 'object' and not _.isArray(v)]
+
+  ['array', 'a',            _.isArray]
 ]
 
 findValidatorFn = (name) ->
-  found = validators.filter (arr) ->
-    name in arr
+  found = validators.filter (arr) -> name in arr
   return null if not found.length
   found[0][ found[0].length - 1 ]
 
