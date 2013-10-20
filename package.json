@@ -1,0 +1,40 @@
+{
+  "name": "pedantic-pick",
+  "version": "0.0.1",
+  "author": "Luke Plaster <notatestuser@gmail.com>",
+  "description": "an extension of `_.pick` that runs validation functions on picked attributes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notatestuser/pedantic-pick.git"
+  },
+  "bugs": "https://github.com/notatestuser/pedantic-pick/issues",
+  "keywords": [
+    "underscore",
+    "lodash",
+    "pick",
+    "field",
+    "validation",
+    "synchronous"
+  ],
+  "main": "./pick",
+  "scripts": {
+    "test": "npm run-script prepublish && ./node_modules/coffee-script/bin/coffee -c test && ./node_modules/fox/bin/fox ./test/*.js && rm -f ./test/*.js",
+    "prepublish": "./node_modules/coffee-script/bin/coffee -o lib/ -c src/*.coffee && ./node_modules/coffee-script/bin/coffee -c *.coffee"
+  },
+  "dependencies": {
+    "lodash.pick": "~2.2.1",
+    "lodash.values": "~2.2.1",
+    "lodash.isarray": "~2.2.1"
+  },
+  "devDependencies": {
+    "fox": "0.0.11",
+    "sinon": "~1.7.3",
+    "coffee-script": "~1.6.3"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://lp.mit-license.org/"
+    }
+  ]
+}
