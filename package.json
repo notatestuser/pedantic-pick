@@ -9,10 +9,10 @@
   },
   "bugs": "https://github.com/notatestuser/pedantic-pick/issues",
   "keywords": [
+    "pick",
     "underscore",
     "lodash",
-    "pick",
-    "field",
+    "validator",
     "validation",
     "synchronous"
   ],
