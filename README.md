@@ -17,7 +17,7 @@ pick({name: 'moe', age: 50, userid: 'moe1'}, '!string::name', 'number::age')
 ```
 or, of course, use the shorthand form:
 ```
-pick({name: 'moe', age: 50, userid: 'moe1'}, '!s::name', 'number::age')
+pick({name: 'moe', age: 50, userid: 'moe1'}, '!s::name', 'n::age')
 => {name: 'moe', age: 50}
 ```
 and when something doesn't pass your rules an error is thrown:
