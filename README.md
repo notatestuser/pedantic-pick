@@ -30,7 +30,7 @@ pick({name: 'moe', age: 50, userid: 'moe1'}, '!s::name', '!alias')
 Each given expression argument must conform to this "grammar": `[!][validator::]key`
 
 ## Validators
-The following validators are built-in (and later we'll support passing custom validation functions in as arguments):
+The following validators are built-in (and later we'll accept custom validation functions as arguments):
 
 * required (prefix the expression with `!`)
 * string
