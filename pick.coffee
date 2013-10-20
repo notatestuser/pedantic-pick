@@ -10,8 +10,11 @@ REQUIRED_ATTR_TOKEN  = '!'
 EXPR_SEPARATOR_TOKEN = '::'
 
 class ValidationError extends Error
-  constructor: (@field, message) ->
-    super message
+  constructor: (@field) ->
+    @message = "#{@field} failed validation"
+
+  toString: ->
+    "Error: #{@message}"
 
 pick = (source, exprs..., thisArg = @) ->
   if typeof thisArg is 'string'
@@ -67,7 +70,7 @@ pick = (source, exprs..., thisArg = @) ->
         fn.call(thisArg, picked[attrName])
     else true
 
-  unless pass then throw new ValidationError(lastAttrName, "adssd failed validation")
+  unless pass then throw new ValidationError(lastAttrName)
   else picked
 
 module.exports = pick
