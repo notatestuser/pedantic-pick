@@ -9,7 +9,7 @@ validators = [
 
   ['boolean', 'bool', 'b',  (v) -> v is true or v is false]
 
-  ['function', 'f', 'fun',  (v) -> typeof v is 'function']
+  ['function', 'fun', 'f',  (v) -> typeof v is 'function']
 
   ['object', 'o',           (v) -> typeof v is 'object' and not _.isArray(v)]
 

@@ -33,13 +33,12 @@ Each given expression argument must conform to this "grammar": `[!][validator::]
 The following validators are built-in (and later we'll accept custom validation functions as arguments):
 
 * required (prefix the expression with `!`)
-* string
-* number
-* boolean
-* function
-* object
-* array
+* string (or `s`)
+* number (or `num` or `n`)
+* boolean (or `bool` or `b`)
+* function (or `fun` or `f`)
+* object (or `o`)
+* array (or `a`)
 
 ## License
 See LICENSE
-
