@@ -18,7 +18,9 @@
   ],
   "main": "./pick",
   "scripts": {
-    "test": "npm run-script prepublish && ./node_modules/coffee-script/bin/coffee -c test && ./node_modules/fox/bin/fox ./test/*.js && rm -f ./test/*.js",
+    "pretest": "npm run-script prepublish && ./node_modules/coffee-script/bin/coffee -c test",
+    "test": "./node_modules/fox/bin/fox ./test/*.js",
+    "posttest": "rm -f ./test/*.js",
     "prepublish": "./node_modules/coffee-script/bin/coffee -o lib/ -c src/*.coffee && ./node_modules/coffee-script/bin/coffee -c *.coffee"
   },
   "dependencies": {
