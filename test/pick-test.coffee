@@ -9,7 +9,17 @@ describe 'pick()', ->
     roses:   'red',
     violets: 'blue'
 
+  describe 'passing expressions that are not strings', ->
+
+    it 'should throw us an error upside our head',  ->
+      fn = pick.bind(@, source, (->), null)
+      expect(fn).to.throw Error('All pick expressions must be strings (found function)')
+
   describe 'inherited functionality', ->
+
+    it 'should pass back a bare object if nothing is to be picked', ->
+      res = pick source
+      expect(res).to.deep.equal {}
 
     it 'should pick out the attributes we specify', ->
       res = pick source, 'roses'
@@ -43,6 +53,10 @@ describe 'pick()', ->
 
     it 'should pick out the validated attributes if satisified (shorthand)', ->
       res = pick source, 's::roses', 's::violets'
+      expect(res).to.deep.equal source
+
+    it 'should not complain if a non-required but validated attribute was omitted', ->
+      res = pick source, 's::roses', 's::foxglove', 'violets'
       expect(res).to.deep.equal source
 
     it 'should throw an error if validation did not pass', ->
