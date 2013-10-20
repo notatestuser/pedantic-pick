@@ -5,6 +5,8 @@ validators = [
 
   ['string', 's',           (v) -> typeof v is 'string']
 
+  ['nempstring', 'nes',     (v) -> typeof v is 'string' and v.length > 0]
+
   ['number', 'num', 'n',    (v) -> typeof v is 'number']
 
   ['boolean', 'bool', 'b',  (v) -> v is true or v is false]
@@ -14,6 +16,8 @@ validators = [
   ['object', 'o',           (v) -> typeof v is 'object' and not _.isArray(v)]
 
   ['array', 'a',            _.isArray]
+
+  ['nemparray', 'nea',      (v) -> _.isArray(v) and v.length > 0]
 ]
 
 findValidatorFn = (name) ->

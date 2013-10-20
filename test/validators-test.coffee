@@ -11,6 +11,9 @@ describe 'validators', ->
     number:       2
     function: ->   'chuckle brothers'
     array:           ['barry', 'paul']
+    empties:
+      array:  []
+      string: ''
 
   describe '#required', ->
     fn = validators.find 'required'
@@ -30,6 +33,12 @@ describe 'validators', ->
       expect(fn stuff.string).to.be.ok
       expect(fn stuff.object).to.not.be.ok
 
+  describe '#nempstring', ->
+    fn = validators.find 'nempstring'
+    it 'should validate the goodies', ->
+      expect(fn stuff.string).to.be.ok
+      expect(fn stuff.empties.string).to.not.be.ok
+
   describe '#number', ->
     fn = validators.find 'number'
     it 'should validate the goodies', ->
@@ -47,3 +56,9 @@ describe 'validators', ->
     it 'should validate the goodies', ->
       expect(fn stuff.array).to.be.ok
       expect(fn stuff.object).to.not.be.ok
+
+  describe '#nemparray', ->
+    fn = validators.find 'nemparray'
+    it 'should validate the goodies', ->
+      expect(fn stuff.array).to.be.ok
+      expect(fn stuff.empties.array).to.not.be.ok
