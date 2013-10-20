@@ -3,7 +3,8 @@ sinon = require 'sinon'
 
 describe 'pick()', ->
 
-  pick   = require '../pick.coffee'
+  pick = require '../pick.coffee'
+  {ValidationError} = pick
 
   source =
     roses:   'red',
@@ -39,11 +40,11 @@ describe 'pick()', ->
 
     it 'should throw an error if requirements are not satisifed', ->
       fn = pick.bind(@, source, '!::roses', '!::hemp')
-      expect(fn).to.throw Error('hemp failed validation')
+      expect(fn).to.throw ValidationError('hemp failed validation')
 
     it 'should throw an error if requirements are not satisifed (alt expr form)', ->
       fn = pick.bind(@, source, '!roses', '!hemp')
-      expect(fn).to.throw Error('hemp failed validation')
+      expect(fn).to.throw ValidationError('hemp failed validation')
 
   describe 'when attributes are validated', ->
 
@@ -61,4 +62,4 @@ describe 'pick()', ->
 
     it 'should throw an error if validation did not pass', ->
       fn = pick.bind(@, source, 's::roses', 'o::violets')
-      expect(fn).to.throw Error('violets failed validation')
+      expect(fn).to.throw ValidationError('violets failed validation')

@@ -9,6 +9,10 @@ validators = require './lib/validators'
 REQUIRED_ATTR_TOKEN  = '!'
 EXPR_SEPARATOR_TOKEN = '::'
 
+class ValidationError extends Error
+  constructor: (@field, message) ->
+    super message
+
 pick = (source, exprs..., thisArg = @) ->
   if typeof thisArg is 'string'
     exprs.push thisArg
@@ -63,7 +67,8 @@ pick = (source, exprs..., thisArg = @) ->
         fn.call(thisArg, picked[attrName])
     else true
 
-  unless pass then throw Error("#{lastAttrName} failed validation")
+  unless pass then throw new ValidationError(lastAttrName, "adssd failed validation")
   else picked
 
 module.exports = pick
+module.exports.ValidationError = ValidationError
