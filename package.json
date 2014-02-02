@@ -2,7 +2,7 @@
   "name": "pedantic-pick",
   "version": "0.2.1-3",
   "author": "Luke Plaster <notatestuser@gmail.com>",
-  "description": "an extension of `_.pick` that applies validation expressions to picked attributes",
+  "description": "an improved `_.pick` that also validates picked attributes",
   "repository": {
     "type": "git",
     "url": "https://github.com/notatestuser/pedantic-pick.git"

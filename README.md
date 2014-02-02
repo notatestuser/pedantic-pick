@@ -1,6 +1,6 @@
 pedantic-pick [![Build Status](https://travis-ci.org/notatestuser/pedantic-pick.png)](https://travis-ci.org/notatestuser/pedantic-pick) [![Dependency Status](https://david-dm.org/notatestuser/pedantic-pick.png)](https://david-dm.org/notatestuser/pedantic-pick) [![devDependency Status](https://david-dm.org/notatestuser/pedantic-pick/dev-status.png)](https://david-dm.org/notatestuser/pedantic-pick#info=devDependencies)
 =============
-This is an enhanced `_.pick` that runs validation functions on picked attributes.
+This is an enhanced `_.pick` that runs validation expressions on picked attributes.
 
 It's common for API developers to use underscore or lodash's `pick` to extract only the
 desired attributes of an incoming object when turning it into a JSON blob for storage in a
