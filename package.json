@@ -24,14 +24,14 @@
     "prepublish": "./node_modules/coffee-script/bin/coffee -o lib/ -c src/*.coffee && ./node_modules/coffee-script/bin/coffee -c *.coffee"
   },
   "dependencies": {
-    "lodash.pick": "~2.2.1",
-    "lodash.values": "~2.2.1",
-    "lodash.isarray": "~2.2.1"
+    "lodash.pick": "~2.4.0",
+    "lodash.values": "~2.4.0",
+    "lodash.isarray": "~2.4.0"
   },
   "devDependencies": {
     "fox": "0.0.11",
-    "sinon": "~1.7.3",
-    "coffee-script": "~1.6.3"
+    "sinon": "~1.7.0",
+    "coffee-script": "~1.6.0"
   },
   "licenses": [
     {
