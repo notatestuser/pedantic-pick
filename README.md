@@ -2,12 +2,6 @@ pedantic-pick [![Build Status](https://travis-ci.org/notatestuser/pedantic-pick.
 =============
 This is an enhanced `_.pick` that runs validation expressions on picked attributes.
 
-It's common for API developers to use underscore or lodash's `pick` to extract only the
-desired attributes of an incoming object when turning it into a JSON blob for storage in a
-database or whatever. The problem with that is that additional code is needed to verify
-that the attributes are actually the types that you expect them to be.
-Using pedantic-pick will allow you to kill two birds with one stone, so to speak.
-
 ## Usage
 The function signature looks much like the one you're already used to: `pick(object, [expressions...], [thisArg])`
 
